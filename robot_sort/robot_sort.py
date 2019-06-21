@@ -115,7 +115,7 @@ class SortingRobot:
 
             #seeing position of robot
             while self.light_is_on():
-                if self.compare_item() == 1:
+                if self.compare_item() == 1 and self.can_move_right():
                     #move right
                     self.move_right()
                     #put the greater value item down
@@ -125,7 +125,7 @@ class SortingRobot:
                 
             #if my item value is -1
             while self.light_is_on():
-                if self.compare_item() == -1:
+                if self.compare_item() == -1 and self.can_move_left():
                     #moving towards None
                     self.move_left()
                     #swap to return smaller value item
