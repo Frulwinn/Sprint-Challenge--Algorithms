@@ -109,7 +109,9 @@ class SortingRobot:
         self.set_light_on()
 
         #loop begins
-        while self.light_is_on():
+        while True:
+            #light indicates sorting is still in process
+            self.light_is_on()
             #seeing position of robot
             if self.can_move_right():
                 #if I can move right move right
@@ -138,12 +140,13 @@ class SortingRobot:
                     self.swap_item()
                 #if there is no items
                 elif self.compare_item() == None:
+                    print("Swapped None, nothing to swap")
                     self.swap_item()
                     self.set_light_off
             #if you can't move right
             else:
                 #if i can't move right I will be swapping with the highest value item
-                self.move_left()
+                print("List is sorted.")
                 self.set_light_off
 
 
