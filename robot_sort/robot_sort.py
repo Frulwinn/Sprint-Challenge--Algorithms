@@ -123,25 +123,32 @@ class SortingRobot:
                 else:
                     self.set_light_off()
                 
-            #if my item value is 0 or -1
-            while self.compare_item() == -1 or self.compare_item == 0:
-                #moving towards None
-                self.move_left()
-                #swap to return smaller card
-                self.swap_item()
+            #if my item value is -1
+            while self.can_move_left():
+                if self.compare_item() == -1:
+                    #moving towards None
+                    self.move_left()
+                    #swap to return smaller value item
+                    self.swap_item()
+                else:
+                    self.set_light_off()
+
+            #if my item value is 0
+            while self.can_move_left():
+                if self.compare_item == 0:
+                    #moving towards None
+                    self.move_left()
+                    #swap to return smaller value item
+                    self.swap_item()
+                #held item or non held item is None
+                elif self.compare_item() is None:
+                    self.swap_item()
+                    self.set_light_off()
+                    break
+                else:
+                    self.set_light_off()
+                    break
             
-            #if there is no items
-            elif self.compare_item() == None:
-                print("Swapped None, nothing to swap")
-                self.swap_item()
-                self.set_light_off
-                break
-            #if you can't move right
-            else:
-                #if i can't move right I will be swapping with the highest value item
-                print("List is sorted.")
-                self.set_light_off
-                break
 
 
 
