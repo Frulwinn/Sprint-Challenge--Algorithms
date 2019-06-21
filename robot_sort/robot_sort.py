@@ -143,12 +143,8 @@ class SortingRobot:
             #if you can't move right
             else:
                 #if i can't move right I will be swapping with the highest value item
-                self.swap_item()
-
-                #move to the far left and turn off
-                while self.can_move_left():
-                    self.move_left()
-                    self.set_light_off
+                self.move_left()
+                self.set_light_off
 
 
 
