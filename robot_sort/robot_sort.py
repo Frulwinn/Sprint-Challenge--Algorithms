@@ -114,7 +114,7 @@ class SortingRobot:
             self.swap_item()
 
             #seeing position of robot
-            while self.can_move_right():
+            while self.light_is_on():
                 if self.compare_item() == 1:
                     #move right
                     self.move_right()
@@ -124,7 +124,7 @@ class SortingRobot:
                     self.set_light_off()
                 
             #if my item value is -1
-            while self.can_move_left():
+            while self.light_is_on():
                 if self.compare_item() == -1:
                     #moving towards None
                     self.move_left()
@@ -134,20 +134,19 @@ class SortingRobot:
                     self.set_light_off()
 
             #if my item value is 0
-            while self.can_move_left():
+            while self.light_is_on():
                 if self.compare_item == 0:
                     #moving towards None
                     self.move_left()
                     #swap to return smaller value item
                     self.swap_item()
                 #held item or non held item is None
-                elif self.compare_item() is None:
+                else:
+                    self.compare_item() is None
                     self.swap_item()
                     self.set_light_off()
                     break
-                else:
-                    self.set_light_off()
-                    break
+                
             
 
 
