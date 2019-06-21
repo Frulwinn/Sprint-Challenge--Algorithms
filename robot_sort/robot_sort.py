@@ -107,52 +107,47 @@ class SortingRobot:
 
         #start sort
         self.set_light_on()
+        #print(self.light_is_on())
 
         #loop begins
         #light indicates sorting is still in process
         while self.light_is_on():
+            self.set_light_off()
             self.swap_item()
 
-            #seeing position of robot
-            while self.light_is_on():
-                if self.compare_item() == 1 and self.can_move_right():
-                    #move right
-                    self.move_right()
+            #seeing position of robot if can move right
+            while self.can_move_right():
+                #move right
+                self.move_right()
+                if self.compare_item() == 1:
                     #put the greater value item down
                     self.swap_item()
+                    
+                    #print(self._item)
+                    #print(self._position)
                 else:
-                    self.set_light_off()
-                
-            #if my item value is -1
-            while self.light_is_on():
-                if self.compare_item() == -1 and self.can_move_left():
-                    #moving towards None
+                    #if can't move right
                     self.move_left()
+                    #swap to return greater value item
+                    self.swap_item()
+                    self.move_right()
+              
+            #seeing position of robot if can move left
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    #print(self._item)
+
+                else:
+                    #if can't move left
+                    self.move_right()
                     #swap to return smaller value item
                     self.swap_item()
-                else:
-                    self.set_light_off()
-
-            #if my item value is 0
-            while self.light_is_on():
-                if self.compare_item == 0:
-                    #moving towards None
                     self.move_left()
-                    #swap to return smaller value item
-                    self.swap_item()
-                #held item or non held item is None
-                else:
-                    self.compare_item() is None
-                    self.swap_item()
-                    self.set_light_off()
-                    break
-                
-            
 
-
-
-    
-        
 
 
 if __name__ == "__main__":
