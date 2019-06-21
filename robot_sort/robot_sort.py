@@ -109,9 +109,9 @@ class SortingRobot:
         self.set_light_on()
 
         #loop begins
-        while True:
-            #light indicates sorting is still in process
-            self.light_is_on()
+        #light indicates sorting is still in process
+        while self.light_is_on() == True:
+            
             #seeing position of robot
             if self.can_move_right() and self.compare_item() == 1:
                 self.move_right()
