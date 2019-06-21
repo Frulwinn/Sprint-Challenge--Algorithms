@@ -117,24 +117,14 @@ class SortingRobot:
                 self.move_right()
                 #put the greater value item down
                 self.swap_item()
-                #then move left to continue comparing
-                self.move_left()
-                #compare items
-                self.swap_item()
-                #move right to compare again
-                self.move_right()
-                #swap
-                self.swap_item()
+                
             #if my item value is 0 or -1
             elif self.compare_item() == -1 or self.compare_item == 0:
                 #moving towards None
                 self.move_left()
                 #swap to return smaller card
                 self.swap_item()
-                #move right to compare
-                self.move_right()
-                #place down none
-                self.swap_item()
+            
             #if there is no items
             elif self.compare_item() == None:
                 print("Swapped None, nothing to swap")
