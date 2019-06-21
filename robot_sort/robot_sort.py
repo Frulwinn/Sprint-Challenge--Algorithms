@@ -110,19 +110,21 @@ class SortingRobot:
 
         #loop begins
         #light indicates sorting is still in process
-        while self.light_is_on() == True:
-            
+        while self.light_is_on():
+            self.swap_item()
+
             #seeing position of robot
-            if self.compare_item() == 1 and self.can_move_right() == True:
-                #move right
-                self.move_right()
-                #put the greater value item down
-                self.swap_item()
-            else:
-                self.set_light_off()
+            while self.can_move_right():
+                if self.compare_item() == 1:
+                    #move right
+                    self.move_right()
+                    #put the greater value item down
+                    self.swap_item()
+                else:
+                    self.set_light_off()
                 
             #if my item value is 0 or -1
-            elif self.compare_item() == -1 or self.compare_item == 0:
+            while self.compare_item() == -1 or self.compare_item == 0:
                 #moving towards None
                 self.move_left()
                 #swap to return smaller card
