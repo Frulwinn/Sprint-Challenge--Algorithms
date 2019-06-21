@@ -140,12 +140,13 @@ class SortingRobot:
                 print("Swapped None, nothing to swap")
                 self.swap_item()
                 self.set_light_off
+                break
             #if you can't move right
             else:
                 #if i can't move right I will be swapping with the highest value item
                 print("List is sorted.")
                 self.set_light_off
-
+                break
 
 
 
