@@ -127,8 +127,15 @@ class SortingRobot:
                     #swap
                     self.swap_item()
                 #if my item value is 0 or -1
-                
-
+                elif self.compare_item() == -1 or self.compare_item == 0:
+                    #moving towards None
+                    self.move_left()
+                    #swap to return smaller card
+                    self.swap_item()
+                    #move right to compare
+                    self.move_right()
+                    #place down none
+                    self.swap_item()
 
 
 
