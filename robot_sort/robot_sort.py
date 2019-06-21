@@ -95,9 +95,45 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        #problem: sort list
+        #plan:
+        have the robot compare item in array
+        if the item is less than the item holding put the item that is less than down
+        keep moving till you find an item that is greater than and then swap
+        continue moving through the list until it is sorted
         """
-        # Fill this out
-        pass
+        # Fill this out /implement:
+
+        #start sort
+        self.set_light_on()
+
+        #loop begins
+        while self.light_is_on():
+            #seeing position of robot
+            if self.can_move_right():
+                #if I can move right move right
+                self.move_right()
+                #i want to compare the two items
+                if self.compare_item() == 1:
+                    #put the greater value item down
+                    self.swap_item()
+                    #then move left to continue comparing
+                    self.move_left()
+                    #compare items
+                    self.swap_item()
+                    #move right to compare again
+                    self.move_right()
+                    #swap
+                    self.swap_item()
+                #if my item value is 0 or -1
+                
+
+
+
+
+    
+        
 
 
 if __name__ == "__main__":
