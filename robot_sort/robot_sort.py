@@ -103,50 +103,34 @@ class SortingRobot:
         keep moving till you find an item that is greater than and then swap
         continue moving through the list until it is sorted
         """
-        # Fill this out /implement:
-
-        #start sort
+       
         self.set_light_on()
-        #print(self.light_is_on())
 
-        #loop begins
-        #light indicates sorting is still in process
-        while self.light_is_on():
+        while self.light_is_on() == True:
             self.set_light_off()
-            self.swap_item()
 
-            #seeing position of robot if can move right
-            while self.can_move_right():
-                #move right
-                self.move_right()
-                if self.compare_item() == 1:
-                    #put the greater value item down
-                    self.swap_item()
-                    
-                    #print(self._item)
-                    #print(self._position)
-                else:
-                    #if can't move right
-                    self.move_left()
-                    #swap to return greater value item
-                    self.swap_item()
-                    self.move_right()
-              
-            #seeing position of robot if can move left
-            while self.can_move_left():
+            while self.can_move_right() == True:
                 self.swap_item()
-                self.move_left()
+                self.move_right()
 
-                if self.compare_item() == -1:
-                    self.swap_item()
-                    #print(self._item)
-
-                else:
-                    #if can't move left
-                    self.move_right()
-                    #swap to return smaller value item
+                if self.compare_item() == 1:
+                    #print("yo")
                     self.swap_item()
                     self.move_left()
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+                    #self.set_light_on()
+                if self.compare_item() == -1 or self.compare_item() == 0:
+                    #print("wasup")
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            if self.light_is_on() and self.can_move_right() == False:
+                while self.can_move_left == True:
+                    self.move_left()
+                    print("hey")
 
 
 
